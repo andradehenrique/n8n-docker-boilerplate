@@ -1,0 +1,28 @@
+{
+  "name": "n8n-docker-boilerplate",
+  "version": "1.0.0",
+  "description": "Simple N8N Docker Compose boilerplate with PostgreSQL",
+  "scripts": {
+    "up": "docker compose up -d",
+    "down": "docker compose down",
+    "restart": "docker compose restart",
+    "logs": "docker compose logs -f",
+    "logs:n8n": "docker compose logs -f n8n",
+    "logs:postgres": "docker compose logs -f postgres",
+    "status": "docker compose ps",
+    "clean": "docker compose down -v"
+  },
+  "keywords": [
+    "n8n",
+    "docker",
+    "automation",
+    "workflow",
+    "boilerplate",
+    "postgresql"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/n8n-docker-boilerplate.git"
+  },
+  "license": "MIT"
+}
