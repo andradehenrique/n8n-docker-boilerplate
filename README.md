@@ -85,6 +85,38 @@ npm run status
 npm run clean
 ```
 
+## Tunnel for Webhook Development
+
+Para desenvolvimento local com webhooks acessíveis pela internet, você pode usar um tunnel. Isso permite que ferramentas externas trigem seus workflows do N8N mesmo rodando localmente.
+
+### Usando Pinggy.io
+
+O Pinggy.io oferece tunnels gratuitos e seguros. Para criar um tunnel para seu N8N local:
+
+```bash
+ssh -p 443 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -R0:localhost:5678 a.pinggy.io
+```
+
+Isso criará um tunnel que:
+- 🌐 Expõe seu N8N local (porta 5678) na internet
+- 🔗 Fornece uma URL pública temporária
+- 🔒 Mantém a conexão segura via SSH
+- ⚡ Permite desenvolvimento em tempo real
+
+**Exemplo de uso:**
+1. Inicie seu N8N local: `docker compose up -d`
+2. Execute o comando do tunnel em outro terminal
+3. Use a URL fornecida pelo Pinggy como webhook URL
+4. Configure seus workflows para receber webhooks externos
+
+### Outras opções de tunnel
+
+- **Ngrok**: `ngrok http 5678`
+- **LocalTunnel**: `lt --port 5678`
+- **Serveo**: `ssh -R 80:localhost:5678 serveo.net`
+
+> ⚠️ **Atenção**: Use tunnels apenas para desenvolvimento. Para produção, configure um domínio próprio e SSL.
+
 ## Production Configuration
 
 For production deployments:
